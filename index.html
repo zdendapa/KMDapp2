@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!-- <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+
+    <script>
+
+        var workLocal = false; // run on local desktop
+        var testFirst = false; // first run of application
+        var testFileModifiedByExter = ""; // simulate sync file modified date - testFileModifiedByExter = "2014-6-30-16-17";
+        var testXMLSave = false; // save fake xml instead of database data
+
+        // ----------- hack
+        if(workLocal)
+        {
+            //testFirst = true;
+
+            //testXMLSave= true;
+            // force to read xml = change date by:
+            //testFirst = true;
+            //testFileModifiedByExter = "2014-6-30-16-17";
+        }
+        // ----------- end of hack
+
+        var pgReady = false;
+
+
+        function onLoad() {
+            if(workLocal)
+                onDeviceReady();
+            else
+                document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+
+    </script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="file.js"></script>
+    <script src="file-transfer.js"></script>
+
+    <script src="js/file2.js"></script>
+    <script src="js/javascript.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/encoder.js"></script>
+    <link rel="stylesheet" href="css/css.css" />
+
+
+    <title>MDK app</title>
+</head>
+
+<body style="display: none" onload="onLoad()">
+<div class="topMenu">
+
+    <div id="categorySelectPrev" class="row rowLeft2">
+        <span>Previous</span>
+    </div>
+
+    <div class="topMenuMiddle">
+        <div class="row" onclick="newWTable()">
+            New Page
+        </div>
+        <div class="categoryWidget">
+            <label for="categorySelect">Current category:</label>
+            <select id="categorySelect" class="registraceSelectButtons" onchange="db.loadSheet();db.setOpenedSheet();memPrev()">
+            </select>
+        </div>
+    </div>
+    <div id="categorySelectNext" class="row rowRight2">
+        <span>Next</span>
+    </div>
+</div>
+<div class="main">
+    <div class="sheets">
+        <div id="first">
+            <div class="mainHeader">
+                <div class="left">
+                    <input id="category" onchange="db.headerUpdate();categorySelectUpdate()">
+                    <h1>TMM Category Description</h1>
+                    <img src="img/LittleGuyLogoBig.jpg">
+                    <div>
+                        <label>Code#</label>
+                        <select id="code" class="registraceSelectButtons" onchange="db.headerUpdate()">
+                        </select>
+                    </div>
+
+                </div>
+                <div class="right">
+                    <div class="space"></div>
+                    <label>I plan to spend: $</label>
+                    <input id="planSpend" onchange="priceFormatCheck(this)">
+                </div>
+                <div style="clear: both; float: none"></div>
+            </div>
+            <div class="table">
+                <div class="tableHeader">
+                    <div class="oneLine">Date</div>
+                    <div class="twoLines">How Paid</div>
+                    <div class="description">Description</div>
+                    <div class="twoLines">Check or Ref#</div>
+                    <div class="twoLines">Payment<br>Amount</div>
+                    <div class="balance">Available Balance</div>
+                </div>
+                <ul class="content">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="instructions">
+        <img width="100%" src="img/COMPANIONINSTRUCTIONS.jpg">
+        <div class="pickUp">
+            <h1>Pick any choice to create a new page.</h1>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+    if(workLocal)
+        onDeviceReady();
+    else
+        document.addEventListener("deviceready", onDeviceReady, false);
+*/
+
+    //alert("1.Jvavascript is ok");
+
+
+var delay=1500;//1 seconds
+setTimeout(function(){
+    onDeviceReadyDelay();
+    //your code to be executed after 1 seconds
+},delay);
+
+</script>
+</html>

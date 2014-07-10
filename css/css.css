@@ -1,0 +1,596 @@
+html, body {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+input, li, span {
+    padding: 0px;
+    margin: 0px;
+}
+input {
+    text-align: center;
+}
+
+/* top menu */
+.topMenu {
+    height: 10%;
+    margin-top: 3px;
+}
+
+
+
+.topMenuMiddle button {
+    width: 20%;
+    float: left;
+}
+div.categoryWidget {
+    width: 78%;
+    display: inline-block;
+    text-align: center;
+
+}
+#categorySelectPrev {
+    padding: 0px;
+    margin: 0px;
+    float: left;
+
+}
+div.topMenu {
+    display: none;
+}
+.topMenuMiddle {
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+.topMenuMiddle button {
+    height: 100%;
+}
+
+
+/*------------- main header -----*/
+.mainHeader {
+    border: 1px solid;
+    margin: 4px;
+    padding: 4px;
+}
+.mainHeader div.left {
+    float: left;
+}
+.mainHeader div.right {
+    float: left;
+}
+.left img {
+    float: left;
+    margin-left: 5% ;
+}
+
+.left label {
+    margin-left: 15%;
+}
+.right div.space {
+    height: 1em;
+    margin-top: 5px;
+}
+.right label {
+    font-weight: bold;
+}
+.right input {
+    width: 40%;
+}
+
+
+.mainHeader input {
+    border: 0px;
+    border-bottom: 1px solid;
+}
+.left #category {
+    width: 100%;
+}
+.left #code {
+    width: 61%;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.mainHeader h1 {
+    margin: 0px;
+}
+
+/*------------- sheets -----*/
+div.sheets {
+
+}
+
+/*------------- table -----*/
+div.tableHeader {
+    border: 1px solid;
+}
+.tableHeader table {
+    border-collapse:collapse;
+}
+
+td
+{
+    text-align:center;
+    width: 10%;
+}
+
+.tableHeader div {
+    display: table-cell;
+    border-right: 1px solid;
+    width: 12%;
+    vertical-align: middle;
+    text-align: center;
+    height: 3.1em;
+}
+
+.tableHeader span {
+    display: table-cell;
+    border-right: 1px solid;
+    width: 12%;
+    vertical-align: middle;
+    text-align: center;
+    height: 3.1em;
+}
+.tableHeader input, .tableHeader textarea {
+    width: 100%;
+    border: 0px;
+    text-align: center;
+
+    margin: 0px;
+    resize: none;
+    overflow:hidden
+
+}
+
+div.fourLines {
+    font-size: 0.5em;
+    height: 6.2em;
+}
+div.balance {
+    border-right: 0px;
+}
+ul {
+    border: 1px solid;
+    border-bottom: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+li {
+    list-style-type: none;
+    border-bottom: 1px solid;
+}
+.content span {
+    border-right: 1px solid;
+    display: table-cell;
+    width: 12%;
+}
+.content span.last {
+    border: 0px;
+}
+
+.description input {
+    text-align: left;
+    text-indent: 2px;
+}
+.content input, .content select {
+    border: 0px solid;
+    width: 100%;
+}
+.content select {
+    -webkit-appearance: button;
+}
+div.row {
+    height: 100%;
+    width: 20%;
+    position: relative;
+    background: grey;
+    text-align: center;
+}
+div#categorySelectPrev {
+    float: left;
+
+}
+div#categorySelectNext {
+    left: 80%;
+}
+.topMenuMiddle .row {
+    float: left;
+    overflow: hidden;
+    border-left: 2px solid white;
+}
+div.row {
+    background: #d9dde0;
+    font-family: Arial;
+    color: #000000;
+    text-decoration: none;
+}
+div.row:active {
+    background: #e3e3e3;
+    text-decoration: none;
+}
+
+div.rowLeft2:active:after {
+    background: url(../img/rowLeftHover.png) no-repeat center;
+    left: -5px;
+}
+div.rowRight2:active:after {
+    background: url(../img/rowRightHover.png) no-repeat center;
+    right: -5px;
+}
+div.row {
+    background: #d9dde0;
+    background-image: -webkit-linear-gradient(top, #d9dde0, #a4a9ad);
+    background-image: -moz-linear-gradient(top, #d9dde0, #a4a9ad);
+    background-image: -ms-linear-gradient(top, #d9dde0, #a4a9ad);
+    background-image: -o-linear-gradient(top, #d9dde0, #a4a9ad);
+    background-image: linear-gradient(to bottom, #d9dde0, #a4a9ad);
+    font-family: Arial;
+    color: #000000;
+    text-decoration: none;
+}
+
+div.row_old:hover {
+    background: #e3e3e3;
+    background-image: -webkit-linear-gradient(top, #e3e3e3, #daddde);
+    background-image: -moz-linear-gradient(top, #e3e3e3, #daddde);
+    background-image: -ms-linear-gradient(top, #e3e3e3, #daddde);
+    background-image: -o-linear-gradient(top, #e3e3e3, #daddde);
+    background-image: linear-gradient(to bottom, #e3e3e3, #daddde);
+    text-decoration: none;
+}
+
+#rowRight {
+    display: block;
+    position: absolute;
+    top: 40%;
+    margin-left: 10px;
+}
+#rowRight:before, #rowRight:after {
+    content: "";
+    position: absolute;
+    background: white;
+}
+#rowRight:before {
+    top: 4px;
+    width: 15px;
+    height: 8px;
+}
+#rowRight:after {
+    left: 12px;
+    border-top: 8px solid transparent;
+    border-left: 9px solid white;
+    border-bottom: 8px solid transparent;
+    background: transparent;
+
+}
+
+#rowLeft {
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    margin-left: -10px;
+
+}
+#rowLeft:before, #rowLeft:after {
+    content: "";
+    position: absolute;
+    background: white;
+}
+#rowLeft:before {
+    top: 4px;
+    left: 5px;
+    width: 15px;
+    height: 8px;
+}
+#rowLeft:after {
+    border-top: 8px solid transparent;
+    border-right: 9px solid white;
+    border-bottom: 8px solid transparent;
+    background: transparent;
+
+}
+
+
+div.rowLeft2 {
+    margin-left: 10px;
+}
+
+div.row:after {
+    content: "";
+    width: 30px;
+    height: 40px;
+    position: absolute;
+
+}
+
+div.rowLeft2:after {
+    background: url(../img/rowLeft.png) no-repeat center;
+    left: -5px;
+}
+
+div.rowRight2:after {
+    background: url(../img/rowRight.png) no-repeat center;
+    right: -5px;
+}
+.rowLeft2 span {
+     width: 100%;
+     text-align: center;
+     left: 12px;
+     position: absolute;
+ }
+.rowRight2 span {
+    width: 100%;
+    text-align: center;
+    left: -12px;
+    position: absolute;
+}
+
+/* ------------------ */
+div.instructions {
+    display: none;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+.instructions input {
+    margin-left: 2%;
+    margin-right: 2%;
+
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
+}
+.instructions h1 {
+    font-size: 1em;
+    padding: 4%;
+    padding-top: 0px;
+    padding-bottom: 2%;
+    margin: 0px;
+}
+
+
+@media only screen and (min-width: 0px)  and (max-width: 274px) {
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .mainHeader h1, .mainHeader label, .mainHeader select,
+    .topMenuMiddle div,.topMenu .row {
+        font-size: 0.5em;
+    }
+    .categoryWidget, .categoryWidget select {
+        font-size: 0.8em;
+    }
+    .mainHeader input {
+        font-size: 0.5em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 1.5em;
+    }
+    .left > div {
+        margin-top: 10%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    .tableHeader {
+        font-size: 0.4em;
+    }
+    div.description {
+        width: 15% !important;
+    }
+    span.description {
+        width: 15% !important;
+    }
+    .content input, .content select {
+        font-size: 0.5em;
+    }
+}
+@media only screen and (min-width: 275px)  and (max-width: 370px) {
+
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .mainHeader h1, .mainHeader label, .mainHeader select,
+    .topMenuMiddle div,.topMenu .row {
+        font-size: 0.5em;
+    }
+    .categoryWidget, .categoryWidget select {
+        font-size: 0.8em;
+    }
+    .mainHeader input {
+        font-size: 0.5em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 2em;
+    }
+    .left > div {
+        margin-top: 10%;
+    }
+    .left #code {
+        width: 61%;
+    }
+    .left label {
+        vertical-align: super;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    .tableHeader {
+        font-size: 0.5em;
+    }
+    div.description {
+        width: 15% !important;
+    }
+    span.description {
+        width: 15% !important;
+    }
+    .content input, .content select {
+        font-size: 0.5em;
+    }
+}
+@media only screen and (min-width: 371px)  and (max-width: 430px) {
+
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .topMenuMiddle div, .topMenu .row {
+        font-size: 0.7em;
+    }
+    .mainHeader h1, .mainHeader label, .mainHeader select {
+        font-size: 0.8em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 2em;
+    }
+    .left > div {
+        margin-top: 5%;
+    }
+    .left #code {
+        width: 64%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    .tableHeader {
+        font-size: 0.7em;
+    }
+    div.description {
+        width: 15% !important;
+    }
+    span.description {
+        width: 15% !important;
+    }
+    .content input, .content select {
+        font-size: 0.7em;
+    }
+
+}
+@media only screen and (min-width: 431px)  and (max-width: 520px) {
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .topMenuMiddle div, .topMenu .row {
+        font-size: 0.8em;
+    }
+    .mainHeader h1 {
+        font-size: 1em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 2em;
+    }
+    .left > div {
+        margin-top: 4%;
+    }
+    .left #code {
+        width: 67%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    .tableHeader {
+        font-size: 0.8em;
+    }
+    div.description {
+        width: 15% !important;
+    }
+    span.description {
+        width: 15% !important;
+    }
+}
+
+@media only screen and (min-width: 521px)  and (max-width: 800px) {
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .mainHeader h1 {
+        font-size: 1em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 2em;
+    }
+    .left > div {
+        margin-top: 2%;
+    }
+    .left #code {
+        width: 45%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    div.description {
+        width: 35% !important;%;
+    }
+    span.description {
+        width: 35% !important;
+    }
+    .topMenu {
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 801px)  {
+    .topMenu {
+        height: 40px;
+        line-height: 40px;
+    }
+    .mainHeader h1 {
+        font-size: 1em;
+        line-height: 1em;
+    }
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .left img {
+        width: 2em;
+    }
+    .left > div {
+        margin-top: 2%;
+    }
+    .left #code {
+        width: 31%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    div.description {
+        width: 44% !important;
+    }
+    span.description {
+        width: 44% !important;
+    }
+
+}
+
+
