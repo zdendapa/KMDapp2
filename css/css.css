@@ -17,7 +17,7 @@ input {
 /* top menu */
 .topMenu {
     height: 10%;
-    margin-top: 3px;
+    padding-top: 3px;
 }
 
 
@@ -337,7 +337,7 @@ div.instructions {
     line-height: 1.5em;
 }
 .instructions input {
-    margin-left: 2%;
+    margin-left: 4%;
     margin-right: 2%;
 
     /* Double-sized Checkboxes */
@@ -355,7 +355,17 @@ div.instructions {
     margin: 0px;
 }
 
+#log {
+    display: none;
+}
+#log textarea {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 20%;
+}
 
+/* =========================================================== media query */
 @media only screen and (min-width: 0px)  and (max-width: 274px) {
     .topMenu {
         height: 40px;

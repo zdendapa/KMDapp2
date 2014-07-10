@@ -48,7 +48,7 @@ function workOn(dir,type) {
     // get modification date of file for recognize software update
     if(type=="meta")
     {
-        dir.getFile("TMMHExport.xml", {create:false}, function(f) {
+        dir.getFile("TMMHExport.xml", {create:true}, function(f) {
             f.getMetadata(metadataFile,onError);
         },noFile);
     }
@@ -206,39 +206,30 @@ function writeFile(fileEntry)
 
 function gotFileWriter(writer) {
 
+    writer.truncate(0);
     writer.onwriteend = function(evt) {
-        logging("write success",1);
-        workOn(dir,"metaSave");
-
-
+        logging("shorten file",1);
 
         if(writer.length ===0)
         {
-
             if(workLocal)
             {
-
-                //var blob = new Blob([xmlString], {type: "text/plain"});
+                // write blob
                 if(testXMLSave)
-                {
-                    var blob = new Blob(['<data>  <meta>  <category>  <option>4006 "Auto Expenses"</option>  <option>4007 "Food/Sundries"</option>  <option>4008 "Home Maintenance"</option>  <option>4009 "Insurance"</option>  <option>4010 "Medical"</option>  <option>4011 "Housing"</option>  <option>4012 "Telephone"</option>  <option>4013 "Utilities"</option>  <option>4014 "Open"</option>  <option>4015 "Open"</option>  <option>4016 "Unident ified Cash w/d"</option>  <option>4017 "Open"</option>  <option>4018 "Open"</option>  <option>4019 "Oenn</option>  <option>4020 "Open"</option>  <option>4021 "Open"</option>  <option>4517 "Child#1-A"</option>  <option>4517 "Child#2-B"</option>  <option>4517 "Child#3-C"</option>  <option>4517 "Child#4-D"</option>  <option>4517 "Child#5-E"</option>  <option>4518 "for Primary Wage Earner #1"</option>  <option>4519 "for Primary Wage Earner #2"</option>  <option>4520 "Pet#1-A"</option>  <option>4520 "Pet#2-B"</option>  <option>4521 "Open"</option>  <option>5023 "Medical Debt / Fees / Charges"</option>  <option>5024 "Loans &amp; Notes Payable"</option>  <option>5025 "Tax Debt I Estimated Tax"</option>  <option>5026 "Open"</option>  <option>6028 "Donations/Gifts"</option>  <option>6029 "Entertainment"</option>  <option>6032 "Savings"</option>  <option>6033 "Vacations"</option>  </category>  </meta>  </data>'], {type: "text/plain"});
-                    var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
-
-                    console.log(blob);
-                }
-                else var blob = new Blob([xmlString], {type: "text/plain"});
+                    var blob = new Blob([testWritelData], {type: 'text/plain'});
+                else
+                    var blob = new Blob([xmlString], {type: "text/plain"});
 
                 writer.write(blob);
-
             } else
             {
-                //alert("start store file, wait for success");
+                // write xmlString
                 writer.write(xmlString);
-                //writer.write('<data>  <meta>  <category>  <option>4006 "Auto Expenses"</option>  <option>4007 "Food/Sundries"</option>  <option>4008 "Home Maintenance"</option>  <option>4009 "Insurance"</option>  <option>4010 "Medical"</option>  <option>4011 "Housing"</option>  <option>4012 "Telephone"</option>  <option>4013 "Utilities"</option>  <option>4014 "Open"</option>  <option>4015 "Open"</option>  <option>4016 "Unident ified Cash w/d"</option>  <option>4017 "Open"</option>  <option>4018 "Open"</option>  <option>4019 "Oenn</option>  <option>4020 "Open"</option>  <option>4021 "Open"</option>  <option>4517 "Child#1-A"</option>  <option>4517 "Child#2-B"</option>  <option>4517 "Child#3-C"</option>  <option>4517 "Child#4-D"</option>  <option>4517 "Child#5-E"</option>  <option>4518 "for Primary Wage Earner #1"</option>  <option>4519 "for Primary Wage Earner #2"</option>  <option>4520 "Pet#1-A"</option>  <option>4520 "Pet#2-B"</option>  <option>4521 "Open"</option>  <option>5023 "Medical Debt / Fees / Charges"</option>  <option>5024 "Loans & Notes Payable"</option>  <option>5025 "Tax Debt I Estimated Tax"</option>  <option>5026 "Open"</option>  <option>6028 "Donations/Gifts"</option>  <option>6029 "Entertainment"</option>  <option>6032 "Savings"</option>  <option>6033 "Vacations"</option>  </category>  </meta>  </data>');
+            }
 
-                //alert("the file was stored at:" + appBaseURL + "\\kmd\\kmdTest1.xml");
-                writer.abort();
-                // contents of file now 'some different text'
+            writer.onwriteend = function(evt) {
+                logging("write success",1);
+                workOn(dir,"metaSave");
             }
         }
         else
@@ -246,7 +237,6 @@ function gotFileWriter(writer) {
             return;
         }
     };
-    writer.truncate(0);
 }
 
 function generateXML(writeIt)

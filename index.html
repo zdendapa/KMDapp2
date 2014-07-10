@@ -5,16 +5,19 @@
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <!-- <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
-    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, target-densitydpi=device-dpi" />
 
     <script>
 
         var workLocal = false; // run on local desktop
+        var showConsole = true;
+
         var testFirst = false; // first run of application
         var testFileModifiedByExter = ""; // simulate sync file modified date - testFileModifiedByExter = "2014-6-30-16-17";
         var testXMLSave = false; // save fake xml instead of database data
 
         // ----------- hack
+
         if(workLocal)
         {
             //testFirst = true;
@@ -118,6 +121,9 @@
         </div>
     </div>
 </div>
+<div id="log">
+    <textarea></textarea>
+</div>
 </body>
 <script type="text/javascript" charset="utf-8">
 /*
@@ -135,6 +141,11 @@ setTimeout(function(){
     onDeviceReadyDelay();
     //your code to be executed after 1 seconds
 },delay);
+
+if(showConsole)
+{
+    $("#log").css("display","block");
+}
 
 </script>
 </html>

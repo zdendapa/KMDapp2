@@ -108,6 +108,7 @@ db.initSheetsData = function()
             len = results.rows.length;
             if(len>0)
             {
+
                 for (var i=0; i<len; i++){
                     $( "#code" ).append($("<option></option>").attr("value", results.rows.item(i).code).text(results.rows.item(i).code));
                 }
@@ -130,9 +131,6 @@ db.initSheetsData = function()
                 for (var i=0; i<len; i++){
                     dbHowPaidOptionsHtml += "<option>" + results.rows.howPaid(i).howPaid + "</option>";
                 }
-            } else
-            {
-                $("#code").append(defaultCodeOptionsHtml);
             }
 
 
@@ -150,9 +148,6 @@ db.initSheetsData = function()
             {
                 //newWTable();
                 showInstructions(true);
-
-                if($("#code option").length==0)
-                    $("#code").append(defaultCodeOptionsHtml);
 
                 $("div.instruction").append("<div class='checkboxes'>");
                 $("#code option").each(function()

@@ -24,6 +24,7 @@ var focusStop = false;
 var defaultCodeOptionsHtml = "<option>4006 &quot;Auto Expenses&quot;</option> <option>4007 &quot;Food/Sundries&quot;</option> <option>4008 &quot;Home Maintenance&quot;</option> <option>4009 &quot;Insurance&quot;</option> <option>4010 &quot;Medical&quot;</option> <option>4011 &quot;Housing&quot;</option> <option>4012 &quot;Telephone&quot;</option> <option>4013 &quot;Utilities&quot;</option> <option>4014 &quot;Open&quot;</option> <option>4015 &quot;Open&quot;</option> <option>4016 &quot;Unident ified Cash w/d&quot;</option> <option>4017 &quot;Open&quot;</option> <option>4018 &quot;Open&quot;</option> <option>4019 &quot;Oenn</option> <option>4020 &quot;Open&quot;</option> <option>4021 &quot;Open&quot;</option> <option>4517 &quot;Child#1-A&quot;</option> <option>4517 &quot;Child#2-B&quot;</option> <option>4517 &quot;Child#3-C&quot;</option> <option>4517 &quot;Child#4-D&quot;</option> <option>4517 &quot;Child#5-E&quot;</option> <option>4518 &quot;for Primary Wage Earner #1&quot;</option> <option>4519 &quot;for Primary Wage Earner #2&quot;</option> <option>4520 &quot;Pet#1-A&quot;</option> <option>4520 &quot;Pet#2-B&quot;</option> <option>4521 &quot;Open&quot;</option> <option>5023 &quot;Medical Debt / Fees / Charges&quot;</option> <option>5024 &quot;Loans &amp; Notes Payable&quot;</option> <option>5025 &quot;Tax Debt I Estimated Tax&quot;</option> <option>5026 &quot;Open&quot;</option> <option>6028 &quot;Donations/Gifts&quot;</option> <option>6029 &quot;Entertainment&quot;</option> <option>6032 &quot;Savings&quot;</option> <option>6033 &quot;Vacations&quot;</option>";
 var defaultHowPaidOptionsHtml = "<option>CASH</option> <option>BK#0001</option> <option>BK#0002</option> <option>BK#0003</option> <option>BK#0004</option> <option>BK#0005</option> <option>BK#0006</option> <option>BK#0007</option> <option>BK#0008</option> <option>BK#0009</option> <option>BK#0010</option> <option>BK#9999</option> <option>CC#0001</option> <option>CC#0002</option> <option>CC#0003</option> <option>CC#0004</option> <option>CC#0005</option> <option>CC#0006</option> <option>CC#0007</option> <option>CC#0008</option> <option>CC#0009</option> <option>CC#9999</option> <option>LOC#001</option> <option>LOC#002</option> <option>LOC#003</option>";
 var dbHowPaidOptionsHtml = defaultHowPaidOptionsHtml;
+var testWritelData = "Lorem Ipsum";
 
 var currentDate = new Date();
 logging("currentDate:" + currentDate,1);
@@ -347,9 +348,19 @@ function focusSetNext(el)
 //-------------------------------------------------------------------
 // level: 1=INFO, 2=WARNING, 3=ERROR
 function logging(str, level) {
-            if (level == 1) console.log("INFO:" + str);
-            if (level == 2) console.log("WARN:" + str);
-            if (level == 3) alert("ERROR:" + str);
+    if (level == 1) console.log("INFO:" + str);
+    if (level == 2) console.log("WARN:" + str);
+    if (level == 3) alert("ERROR:" + str);
+
+    var elLog = $("#log");
+    if(elLog.length>0)
+    {
+        var elTextarea = $("#log").find("textarea");
+        var text= $(elTextarea).val();
+        text += str + "\n";
+        $(elTextarea).val(text);
+        $(elTextarea).scrollTop($(elTextarea)[0].scrollHeight);
+    }
 };
 
 
