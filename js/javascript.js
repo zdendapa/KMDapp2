@@ -93,14 +93,15 @@ function init()
             }
             else
             {
-                $(this).closest('span').next().find('input').focus();
+                //$(this).closest('span').next().find('input').focus();
+                var elNext = $(this).closest('span').next().find('input');
+                $(elNext).focus();
+                $(elNext).click();
                 //e.preventDefault();
             }
 
         }
     });
-
-
 
 
 

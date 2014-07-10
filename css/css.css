@@ -4,6 +4,7 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: 'Arial', sans-serif;
 }
 
 input, li, span {
@@ -366,7 +367,7 @@ div.instructions {
 }
 
 /* =========================================================== media query */
-@media only screen and (min-width: 0px)  and (max-width: 274px) {
+@media only screen and (min-width: 0px)  and (max-width: 300px) {
     .topMenu {
         height: 40px;
         line-height: 40px;
@@ -407,7 +408,7 @@ div.instructions {
         font-size: 0.5em;
     }
 }
-@media only screen and (min-width: 275px)  and (max-width: 370px) {
+@media only screen and (min-width: 301px)  and (max-width: 390px) {
 
     .topMenu {
         height: 40px;
@@ -415,7 +416,7 @@ div.instructions {
     }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
-        font-size: 0.5em;
+        font-size: 0.6em;
     }
     .categoryWidget, .categoryWidget select {
         font-size: 0.8em;
@@ -455,7 +456,7 @@ div.instructions {
         font-size: 0.5em;
     }
 }
-@media only screen and (min-width: 371px)  and (max-width: 430px) {
+@media only screen and (min-width: 391px)  and (max-width: 470px) {
 
     .topMenu {
         height: 40px;
@@ -497,7 +498,7 @@ div.instructions {
     }
 
 }
-@media only screen and (min-width: 431px)  and (max-width: 520px) {
+@media only screen and (min-width: 471px)  and (max-width: 550px) {
     .topMenu {
         height: 40px;
         line-height: 40px;
@@ -535,7 +536,7 @@ div.instructions {
     }
 }
 
-@media only screen and (min-width: 521px)  and (max-width: 800px) {
+@media only screen and (min-width: 551px)  and (max-width: 800px) {
     .topMenu {
         height: 40px;
         line-height: 40px;
