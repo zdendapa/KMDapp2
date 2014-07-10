@@ -52,12 +52,9 @@ function workOn(dir,type) {
             //f.getMetadata(metadataFile,onError);
 
             f.file(function(file){
-                console.log("uuuu"+ file.lastModifiedDate);
-
                 modificationDate = new Date(file.lastModifiedDate);
                 db.readLastExport(importExport);
             },function(){});
-
 
         },noFile);
     }
@@ -65,7 +62,15 @@ function workOn(dir,type) {
     if(type=="metaSave")
     {
         dir.getFile("TMMHExport.xml", {create:false}, function(f) {
-            f.getMetadata(metadataFileSave,onError);
+            //f.getMetadata(metadataFileSave,onError);
+            f.file(function(file){
+                console.log("uuuu"+ file.lastModifiedDate);
+                modificationDate = new Date(file.lastModifiedDate);
+                db.setLastExport();
+            },function(){});
+
+
+
         }, onError);
     }
     if(type=="write")
@@ -86,6 +91,7 @@ function noFile()
     });
 }
 
+/*
 function metadataFile(m) {
     modificationDate = new Date(m.modificationTime);
     db.readLastExport(importExport);
@@ -93,11 +99,10 @@ function metadataFile(m) {
 function metadataFileSave(m) {
     //alert("File was last modified "+m.modificationTime);
     modificationDate = new Date(m.modificationTime);
-    console.log("db.setLastExport");
     db.setLastExport();
     //workOn(dir,"write");
 }
-
+*/
 var importExport = function ()
 {
 
