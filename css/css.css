@@ -514,13 +514,13 @@ div.instructions {
         width: 50%;
     }
     .left img {
-        width: 2em;
+        width: 50px;
     }
     .left > div {
-        margin-top: 4%;
+        margin-top: 7%;
     }
     .left #code {
-        width: 67%;
+        width: 64%;
     }
     .mainHeader div.right {
         width: 50%;
@@ -549,13 +549,13 @@ div.instructions {
         width: 50%;
     }
     .left img {
-        width: 2em;
+        width: 70px;
     }
     .left > div {
-        margin-top: 2%;
+        margin-top: 10%;
     }
     .left #code {
-        width: 45%;
+        width: 61%;
     }
     .mainHeader div.right {
         width: 50%;
@@ -584,13 +584,13 @@ div.instructions {
         width: 50%;
     }
     .left img {
-        width: 2em;
+        width: 80px;
     }
     .left > div {
-        margin-top: 2%;
+        margin-top: 35px;
     }
     .left #code {
-        width: 31%;
+        width: 39%;
     }
     .mainHeader div.right {
         width: 50%;
