@@ -49,7 +49,16 @@ function workOn(dir,type) {
     if(type=="meta")
     {
         dir.getFile("TMMHExport.xml", {create:true}, function(f) {
-            f.getMetadata(metadataFile,onError);
+            //f.getMetadata(metadataFile,onError);
+
+            f.file(function(file){
+                console.log("uuuu"+ file.lastModifiedDate);
+
+                modificationDate = new Date(file.lastModifiedDate);
+                db.readLastExport(importExport);
+            },function(){});
+
+
         },noFile);
     }
     // after write, read modification date
@@ -78,12 +87,8 @@ function noFile()
 }
 
 function metadataFile(m) {
-    //alert("File was last modified "+m.modificationTime);
     modificationDate = new Date(m.modificationTime);
-    logging("m.modificationTime"+m.modificationTime,1);
     db.readLastExport(importExport);
-    //db.setLastExport();
-    //workOn(dir,"write");
 }
 function metadataFileSave(m) {
     //alert("File was last modified "+m.modificationTime);
@@ -202,7 +207,14 @@ function readFile(fileEntry)
 
 function writeFile(fileEntry)
 {
+
     fileEntry.createWriter(gotFileWriter);
+
+
+
+    fileEntry.file(function(file){
+        console.log("asdsaddsa"+ file.lastModifiedDate);
+    },function(){});
 }
 
 function gotFileWriter(writer) {
