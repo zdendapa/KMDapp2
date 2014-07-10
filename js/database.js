@@ -20,7 +20,7 @@ var lastSyncDate;   // date of last sync
 
 var db = {
     settings: {
-        shortName: 'kmd11b',
+        shortName: 'kmd11c',
         version: '1.0',
         displayName: 'KMD app',
         maxSize: 655367 // in bytes
@@ -129,7 +129,7 @@ db.initSheetsData = function()
             {
                 dbHowPaidOptionsHtml = "";
                 for (var i=0; i<len; i++){
-                    dbHowPaidOptionsHtml += "<option>" + results.rows.howPaid(i).howPaid + "</option>";
+                    dbHowPaidOptionsHtml += "<option>" + results.rows.item(i).howPaid + "</option>";
                 }
             }
 
