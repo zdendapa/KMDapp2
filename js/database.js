@@ -405,8 +405,7 @@ db.sheetsdataRowsCount = function(success_callback)
 };
 
 function errorCB(err) {
-    alert("Error processing SQL: "+err);
-    console.log(err);
+    logging("Error processing SQL: "+err,3);
 }
 
 // --------------- import
