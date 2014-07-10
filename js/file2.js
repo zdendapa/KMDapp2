@@ -80,6 +80,7 @@ function noFile()
 function metadataFile(m) {
     //alert("File was last modified "+m.modificationTime);
     modificationDate = new Date(m.modificationTime);
+    logging("m.modificationTime"+m.modificationTime,1);
     db.readLastExport(importExport);
     //db.setLastExport();
     //workOn(dir,"write");
