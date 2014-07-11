@@ -31,7 +31,11 @@ div.categoryWidget {
     width: 78%;
     display: inline-block;
     text-align: center;
-
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+.categoryWidget label, .categoryWidget select {
+    margin: 2px;
 }
 #categorySelectPrev {
     padding: 0px;
@@ -306,17 +310,18 @@ div.row:after {
     width: 30px;
     height: 40px;
     position: absolute;
-
 }
 
 div.rowLeft2:after {
     background: url(../img/rowLeft.png) no-repeat center;
     left: -5px;
+    background-size: contain;
 }
 
 div.rowRight2:after {
     background: url(../img/rowRight.png) no-repeat center;
     right: -5px;
+    background-size: contain;
 }
 .rowLeft2 span {
      width: 100%;
@@ -407,6 +412,18 @@ div.instructions {
     .content input, .content select {
         font-size: 0.5em;
     }
+    div.instructions {
+        font-size: 0.8em;
+        line-height: 1em;
+    }
+    .instructions input {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1); /* IE */
+        -moz-transform: scale(1); /* FF */
+        -webkit-transform: scale(1); /* Safari and Chrome */
+        -o-transform: scale(1); /* Opera */
+        padding: 10px;
+    }
 }
 @media only screen and (min-width: 301px)  and (max-width: 390px) {
 
@@ -455,6 +472,18 @@ div.instructions {
     .content input, .content select {
         font-size: 0.5em;
     }
+    div.instructions {
+        font-size: 0.8em;
+        line-height: 1em;
+    }
+    .instructions input {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1); /* IE */
+        -moz-transform: scale(1); /* FF */
+        -webkit-transform: scale(1); /* Safari and Chrome */
+        -o-transform: scale(1); /* Opera */
+        padding: 10px;
+    }
 }
 @media only screen and (min-width: 391px)  and (max-width: 470px) {
 
@@ -496,7 +525,18 @@ div.instructions {
     .content input, .content select {
         font-size: 0.7em;
     }
-
+    div.instructions {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    .instructions input {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1.5); /* IE */
+        -moz-transform: scale(1.5); /* FF */
+        -webkit-transform: scale(1.5); /* Safari and Chrome */
+        -o-transform: scale(1.5); /* Opera */
+        padding: 10px;
+    }
 }
 @media only screen and (min-width: 471px)  and (max-width: 550px) {
     .topMenu {
@@ -534,6 +574,18 @@ div.instructions {
     span.description {
         width: 15% !important;
     }
+    div.instructions {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    .instructions input {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1.5); /* IE */
+        -moz-transform: scale(1.5); /* FF */
+        -webkit-transform: scale(1.5); /* Safari and Chrome */
+        -o-transform: scale(1.5); /* Opera */
+        padding: 10px;
+    }
 }
 
 @media only screen and (min-width: 551px)  and (max-width: 800px) {
@@ -569,22 +621,134 @@ div.instructions {
     .topMenu {
         height: 40px;
     }
+    div.instructions {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    .instructions input {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        padding: 10px;
+    }
 }
 
-@media only screen and (min-width: 801px)  {
+@media only screen and (min-width: 801px)  and (max-width: 1050px) {
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 80px;
+        line-height: 80px;
     }
-    .mainHeader h1 {
+    .mainHeader h1, .mainHeader label, .mainHeader select,
+    .topMenuMiddle div,.topMenu .row {
+        font-size: 1.5em;
+    }
+    .categoryWidget, .categoryWidget select {
         font-size: 1em;
+    }
+    .mainHeader input {
+        font-size: 2em;
         line-height: 1em;
     }
+
     .mainHeader div.left {
         width: 50%;
     }
+    .right div.space {
+        margin-top: 35px;
+    }
     .left img {
-        width: 80px;
+        width: 120px;
+    }
+    .tableHeader {
+        font-size: 1.5em;
+    }
+    div.row:after {
+        width: 40px;
+        height: 80px;
+    }
+    div.rowLeft2:after {
+        left: 0px;
+    }
+    div.rowRight2:after {
+        right: 0px;
+    }
+    .left > div {
+        margin-top: 55px;
+    }
+    .left #code {
+        width: 39%;
+    }
+    .mainHeader div.right {
+        width: 50%;
+    }
+    div.mainHeader {
+        padding-top: 20px;
+    }
+    div.description {
+        width: 24% !important;
+    }
+    span.description {
+        width: 24% !important;
+    }
+    div.instructions {
+        font-size: 2.5em;
+        line-height: 1.8em;
+    }
+    .content input, .content select {
+        font-size: 1.5em;
+    }
+    .instructions input {
+        margin-right: 4%;
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(4); /* IE */
+        -moz-transform: scale(4); /* FF */
+        -webkit-transform: scale(4); /* Safari and Chrome */
+        -o-transform: scale(4); /* Opera */
+        padding: 10px;
+    }
+
+}
+
+@media only screen and (min-width: 1051px)  {
+    .topMenu {
+        height: 100px;
+        line-height: 100px;
+    }
+    .mainHeader h1, .mainHeader label, .mainHeader select,
+    .topMenuMiddle div,.topMenu .row {
+        font-size: 2em;
+    }
+    .categoryWidget, .categoryWidget select {
+        font-size: 1em;
+    }
+    .mainHeader input {
+        font-size: 2em;
+        line-height: 1em;
+    }
+
+    .mainHeader div.left {
+        width: 50%;
+    }
+    .right div.space {
+        margin-top: 35px;
+    }
+    .left img {
+        width: 120px;
+    }
+    .tableHeader {
+        font-size: 2em;
+    }
+    div.row:after {
+        width: 50px;
+        height: 100px;
+    }
+    div.rowLeft2:after {
+        left: 0px;
+    }
+    div.rowRight2:after {
+        right: 0px;
     }
     .left > div {
         margin-top: 35px;
@@ -595,11 +759,30 @@ div.instructions {
     .mainHeader div.right {
         width: 50%;
     }
+    div.mainHeader {
+        padding-top: 30px;
+    }
     div.description {
-        width: 44% !important;
+        width: 24% !important;
     }
     span.description {
-        width: 44% !important;
+        width: 24% !important;
+    }
+    div.instructions {
+        font-size: 2.5em;
+        line-height: 1.8em;
+    }
+    .content input, .content select {
+        font-size: 1.5em;
+    }
+    .instructions input {
+        margin-right: 4%;
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(4); /* IE */
+        -moz-transform: scale(4); /* FF */
+        -webkit-transform: scale(4); /* Safari and Chrome */
+        -o-transform: scale(4); /* Opera */
+        padding: 10px;
     }
 
 }

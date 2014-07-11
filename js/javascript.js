@@ -121,9 +121,16 @@ function init()
         db.loadSheet();
     });
 
+
+    enableMenuButton();
+
+
+
     db.init();
     //fileInit();
 }
+
+
 
 function newWTable()
 {
@@ -133,7 +140,8 @@ function newWTable()
     //currentWtable = lastWtable;
 
     $("#category").val("");
-    //$("#code").val(0);
+    //$("#code").val('4011 "Housing"');
+    $("#code").val($("#code option:first").val());
     $("#planSpend").val("0.00");
     $("ul.content").empty();
     lastRowID  =0;
@@ -281,7 +289,7 @@ function startTable(el)
 {
     $(el).prop('checked', false);
     var code = $(el).next().html();
-    $(".instructions div.pickUp").html("");
+    //$(".instructions div.pickUp").html("");
     showInstructions(false);
 
     newWTable();
@@ -308,6 +316,25 @@ function showInstructions(yesnNo)
         $("div.instructions").css("display","none");
     }
 
+}
+function showInstructionsCodes()  // zruseno
+{
+    $("div.instruction").append("<div class='checkboxes'>");
+    $("#code option").each(function()
+    {
+        $(".instructions div.pickUp").append('<input type="checkbox" value="'+$(this).text()+'"><span>'+$(this).text()+'</span><br>');
+    });
+}
+
+function codesSetDefaults()
+{
+    $("#code").append(defaultCodeOptionsHtml);
+
+    $("div.instruction").append("<div class='checkboxes'>");
+    $("#code option").each(function()
+    {
+        $(".instructions div.pickUp").append('<input type="checkbox" value="'+$(this).text()+'"><span>'+$(this).text()+'</span><br>');
+    });
 }
 
 function memPrev()
@@ -346,6 +373,8 @@ function focusSetNext(el)
     // $(el).parent().siblings('div.bottom').find("input.post").focus();
 }
 
+
+
 //-------------------------------------------------------------------
 // level: 1=INFO, 2=WARNING, 3=ERROR
 function logging(str, level) {
@@ -375,4 +404,14 @@ function StringtoXML(text){
         var doc=parser.parseFromString(text,'text/xml');
     }
     return doc;
+}
+
+// ---- menu button
+function enableMenuButton()
+{
+    document.addEventListener("menubutton", menuButton, true);
+}
+
+function menuButton() {
+    $("#log").toggle();
 }

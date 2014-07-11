@@ -14,13 +14,29 @@
 
         var testFirst = false; // first run of application
         var testFileModifiedByExter = ""; // simulate sync file modified date - testFileModifiedByExter = "2014-6-30-16-17";
-        var testXMLSave = true; // save fake xml instead of database data
+        var testXMLSave = false; // save fake xml instead of database data
+        var testNoFS = false;
+        var testNoDB = false;
+        var testStaticApp = false;
+        var testParticularHack = false;
 
         // ----------- hack
 
         if(workLocal)
         {
-            //testFirst = true;
+
+            testFirst = true;
+
+            if(testStaticApp)
+            {
+                testNoFS = true;
+                testNoDB = true;
+                testParticularHack = true;
+                testFirst = true;
+            }
+
+
+
 
             //testXMLSave= true;
             // force to read xml = change date by:
@@ -54,7 +70,7 @@
     <link rel="stylesheet" href="css/css.css" />
 
 
-    <title>MDK app</title>
+    <title>i-Count</title>
 </head>
 
 <body style="display: none" onload="onLoad()">
@@ -69,9 +85,7 @@
             New Page
         </div>
         <div class="categoryWidget">
-            <label for="categorySelect">Current category:</label>
-            <select id="categorySelect" class="registraceSelectButtons" onchange="db.loadSheet();db.setOpenedSheet();memPrev()">
-            </select>
+            <label for="categorySelect">Current category:</label><select id="categorySelect" class="registraceSelectButtons" onchange="db.loadSheet();db.setOpenedSheet();memPrev()"></select>
         </div>
     </div>
     <div id="categorySelectNext" class="row rowRight2">
@@ -126,26 +140,40 @@
 </div>
 </body>
 <script type="text/javascript" charset="utf-8">
-/*
-    if(workLocal)
-        onDeviceReady();
-    else
-        document.addEventListener("deviceready", onDeviceReady, false);
-*/
+    /*
+     if(workLocal)
+     onDeviceReady();
+     else
+     document.addEventListener("deviceready", onDeviceReady, false);
+     */
 
     //alert("1.Jvavascript is ok");
 
 
-var delay=1500;//1 seconds
-setTimeout(function(){
-    onDeviceReadyDelay();
-    //your code to be executed after 1 seconds
-},delay);
+    var delay=1500;//1 seconds
+    setTimeout(function(){
+        onDeviceReadyDelay();
+        //your code to be executed after 1 seconds
+    },delay);
 
-if(showConsole)
-{
-    $("#log").css("display","block");
-}
+    if(showConsole)
+    {
+        $("#log").css("display","block");
+    }
+
+    if(testStaticApp)
+    {
+        showInstructions(false);
+        codesSetDefaults();
+        //showInstructionsCodes();
+        $("body").css("display","block");
+    }
+
+    if(testParticularHack)
+    {
+        $( "#categorySelect" ).append($("<option></option>").attr("value","Instructions").text("Instructions"));
+        $("#category").val("Instructions");
+    }
 
 </script>
 </html>

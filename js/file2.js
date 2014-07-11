@@ -14,6 +14,7 @@ function fileInit()
 }
 
 function initFs() {
+    if(testNoFS) return;
 
     var s = location.origin + location.pathname;
     var pi = s.lastIndexOf("/");

@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cz.initedsolutions.kmd"
-        version   = "1.1">
+        version   = "1.2">
     <!--
       0.1
         a- oprava vzhledu
@@ -21,15 +21,17 @@
       1.1
       - 13 new requirements
 
+      1.2
+      - fixed: many things :)
+
       DONT FORGET CHANGE:
       Db name
       workLocal
-
     -->
 
     <preference name="phonegap-version"/>
 
-    <name>KMDapp</name>
+    <name>i-Count</name>
 
     <description>Form import</description>
 

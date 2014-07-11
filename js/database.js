@@ -20,7 +20,7 @@ var lastSyncDate;   // date of last sync
 
 var db = {
     settings: {
-        shortName: 'kmd11d',
+        shortName: 'kmd11e',
         version: '1.0',
         displayName: 'KMD app',
         maxSize: 655367 // in bytes
@@ -29,6 +29,9 @@ var db = {
 
 db.init = function(success_callback)
 {
+
+    if(testNoDB) return;
+
     logging("Db si initiating",1);
     try {
         if (!window.openDatabase) {
@@ -109,12 +112,16 @@ db.initSheetsData = function()
             if(len>0)
             {
 
+                $("div.instruction").append("<div class='checkboxes'>");
+
                 for (var i=0; i<len; i++){
-                    $( "#code" ).append($("<option></option>").attr("value", results.rows.item(i).code).text(results.rows.item(i).code));
+                    $("#code").append($("<option></option>").attr("value", results.rows.item(i).code).text(results.rows.item(i).code));
+                    $(".instructions div.pickUp").append('<input type="checkbox" value="'+results.rows.item(i).code+'"><span>'+results.rows.item(i).code+'</span><br>');
                 }
+
             } else
             {
-                $("#code").append(defaultCodeOptionsHtml);
+                codesSetDefaults();
             }
 
 
@@ -148,13 +155,8 @@ db.initSheetsData = function()
             {
                 //newWTable();
                 showInstructions(true);
+                //showInstructionsCodes();
 
-                $("div.instruction").append("<div class='checkboxes'>");
-                $("#code option").each(function()
-                {
-                    //$(".instructions div.pickUp").append("<input type='checkbox' value='"+$(this).text()+'">'+$(this).text()+'<br>');
-                    $(".instructions div.pickUp").append('<input type="checkbox" value="'+$(this).text()+'"><span>'+$(this).text()+'</span><br>');
-                });
                 $("body").css("display","block");
             }
             else
@@ -282,9 +284,10 @@ db.loadSheet = function()
 
             if(results.rows.length>0)
             {
+
                 $("#category").val(results.rows.item(0).category);
-                $("#code option:selected" ).text(results.rows.item(0).code);
-                //$("#code").val(results.rows.item(0).code);
+                //$("#code option:selected" ).text(results.rows.item(0).code);
+                $("#code").val(results.rows.item(0).code);
                 $("#planSpend").val(results.rows.item(0).planSpend);
             }
 
