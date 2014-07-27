@@ -10,7 +10,7 @@
     <script>
 
         var workLocal = false; // run on local desktop
-        var showConsole = false;
+        var showConsole = false; // shows console in app
 
         var testFirst = false; // first run of application
         var testFileModifiedByExter = ""; // simulate sync file modified date - testFileModifiedByExter = "2014-6-30-16-17";
@@ -19,13 +19,14 @@
         var testNoDB = false;
         var testStaticApp = false;
         var testParticularHack = false;
+        var loggingAlert = false;
 
-        // ----------- hack
-
+        // ----------- hack! run all above features here:
         if(workLocal)
         {
 
-            testFirst = true;
+            //testFirst = true;
+            //loggingAlert = true;
 
             if(testStaticApp)
             {
@@ -77,19 +78,25 @@
 <div class="topMenu">
 
     <div id="categorySelectPrev" class="row rowLeft2">
-        <span>Previous</span>
+        <span></span>
     </div>
 
     <div class="topMenuMiddle">
-        <div class="row" onclick="newWTable()">
-            New Page
+        <div style="display: none" class="row" onclick="newWTable()">
+            New
         </div>
         <div class="categoryWidget">
-            <label for="categorySelect">Current category:</label><select id="categorySelect" class="registraceSelectButtons" onchange="db.loadSheet();db.setOpenedSheet();memPrev()"></select>
+            <input id="category" onchange="db.headerUpdate();categorySelectUpdate()">
+            <select id="categorySelect" class="registraceSelectButtons" onchange="categorySelectonchange()"></select>
+            <h1>TMM Category Description</h1>
         </div>
     </div>
-    <div id="categorySelectNext" class="row rowRight2">
-        <span>Next</span>
+    <div class="row" onclick="buttonDelete()">Delete</div><!--
+  --><div class="space"></div><!--
+  --><div class="row" onclick="buttonSave()">Save</div><!--
+  --><div class="space"></div><!--
+  --><div id="categorySelectNext" class="row rowRight2">
+        <span></span>
     </div>
 </div>
 <div class="main">
@@ -97,8 +104,6 @@
         <div id="first">
             <div class="mainHeader">
                 <div class="left">
-                    <input id="category" onchange="db.headerUpdate();categorySelectUpdate()">
-                    <h1>TMM Category Description</h1>
                     <img src="img/LittleGuyLogoBig.jpg">
                     <div>
                         <label>Code#</label>
@@ -108,7 +113,6 @@
 
                 </div>
                 <div class="right">
-                    <div class="space"></div>
                     <label>I plan to spend: $</label>
                     <input id="planSpend" onchange="priceFormatCheck(this)">
                 </div>

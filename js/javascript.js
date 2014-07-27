@@ -65,7 +65,11 @@ function init()
     });
 
     $( document ).on('click', '.instructions input', function() {
-        startTable(this);
+        var el = $(this);
+        setTimeout(function(){
+            startTable(el);
+        },50)
+
     });
 
     // read date of sync from db.
@@ -177,7 +181,7 @@ function recalculateBalance()
             }
         }
     });
-    if(underValue) alert("Available balance is under 0$");
+    if(underValue) alert("Available balance is under $0");
 }
 
 function priceFormatCheck(el)
@@ -215,7 +219,7 @@ function dateFormatCheck(el)
         elSlinc = value.split("/");
         if(elSlinc.length < 2 || elSlinc.length > 3)
         {
-            alert("Date format must be: 'D/M' or D/M/YY");
+            alert("Date format must be: 'M/D' or M/D/YY");
             $(el).val("");
             return;
         }
@@ -238,7 +242,7 @@ function addRow()
     logging("addRow",1);
     lastRowID ++;
     //$("ul.content").append('<li onchange="dbUpdater('+lastRowID+')" data-id="'+lastRowID+'"> <span class="dater"><input  onchange="dateFormatCheck(this)"></span> <span  class="paid"><input></span> <span class="description"><input onchange="addRowCheck(this)"></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this);recalculateBalance()"></span> <span class="last"><input readonly></span> </li>');
-    $("ul.content").append('<li data-id="'+lastRowID+'"> <span class="dater"><input  onchange="dateFormatCheck(this)"></span> <span  class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this)"></span> <span class="last"><input readonly></span> </li>');
+    $("ul.content").append('<li data-id="'+lastRowID+'"> <span class="dater"><input onchange="dateFormatCheck(this)"></span> <span  class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this)"></span> <span class="last"><input readonly></span> </li>');
 }
 
 function updateHeader()
@@ -259,9 +263,36 @@ function updateHeader()
     if(proceedUpdate) dbUpdateHeader();
 }
 
+
+function categorySelectonchange()
+{
+    if($("#categorySelect").val()=="New page")
+    {
+        newWTable();
+    }
+        else
+    {
+        db.loadSheet();db.setOpenedSheet();memPrev()
+    }
+
+}
 function categorySelectUpdate()
 {
     $( "#categorySelect option:selected" ).text($('#category').val());
+}
+
+function buttonDelete()
+{
+    var r = confirm("Do you want to delete this page and all data?");
+    if (r == true) {
+        alert("I will preform delete");
+    } else {
+        return;
+    }
+}
+function buttonSave()
+{
+    alert("I will preform save");
 }
 
 function shidCurrentGet()
@@ -288,7 +319,7 @@ function dbUpdater2(el)
 function startTable(el)
 {
     $(el).prop('checked', false);
-    var code = $(el).next().html();
+    var code = $(el).next().next().html();
     //$(".instructions div.pickUp").html("");
     showInstructions(false);
 
@@ -323,17 +354,20 @@ function showInstructionsCodes()  // zruseno
     $("#code option").each(function()
     {
         $(".instructions div.pickUp").append('<input type="checkbox" value="'+$(this).text()+'"><span>'+$(this).text()+'</span><br>');
+
     });
 }
 
 function codesSetDefaults()
 {
+    var i =0;
     $("#code").append(defaultCodeOptionsHtml);
 
     $("div.instruction").append("<div class='checkboxes'>");
     $("#code option").each(function()
     {
-        $(".instructions div.pickUp").append('<input type="checkbox" value="'+$(this).text()+'"><span>'+$(this).text()+'</span><br>');
+        $(".instructions div.pickUp").append('<input id="instCheck'+i+'" type="checkbox" value="'+$(this).text()+'"><label class="checkboxFive" for="instCheck'+i+'"></label><span>'+$(this).text()+'</span><br>');
+        i++;
     });
 }
 
@@ -381,6 +415,7 @@ function logging(str, level) {
     if (level == 1) console.log("INFO:" + str);
     if (level == 2) console.log("WARN:" + str);
     if (level == 3) alert("ERROR:" + str);
+    if(loggingAlert) alert(str);
 
     var elLog = $("#log");
     if(elLog.length>0)

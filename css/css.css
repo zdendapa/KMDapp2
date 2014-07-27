@@ -28,14 +28,31 @@ input {
     float: left;
 }
 div.categoryWidget {
-    width: 78%;
+    width: 100%;
     display: inline-block;
-    text-align: center;
     line-height: 1.5em;
     vertical-align: middle;
+    text-align: left;
+    margin-left: 5px;
 }
 .categoryWidget label, .categoryWidget select {
     margin: 2px;
+    display: inline-block;
+    width: 20px;
+    margin-top: 10px;
+}
+.categoryWidget input {
+    margin-top: 20px;
+    display: inline-block;
+    width: 70%;
+    border: 0;
+}
+.categoryWidget h1 {
+    font-size: 0.8em;
+    border-top: 1px solid;
+    width: 70%;
+    margin: 0px;
+    padding-left: 30px;
 }
 #categorySelectPrev {
     padding: 0px;
@@ -47,7 +64,7 @@ div.topMenu {
     display: none;
 }
 .topMenuMiddle {
-    width: 60%;
+    width: 50%;
     height: 100%;
     float: left;
 }
@@ -55,10 +72,14 @@ div.topMenu {
     height: 100%;
 }
 
+.topMenu div.space
+{
+    width: 5%;
+    display: inline-block;
+}
 
 /*------------- main header -----*/
 .mainHeader {
-    border: 1px solid;
     margin: 4px;
     padding: 4px;
 }
@@ -67,6 +88,7 @@ div.topMenu {
 }
 .mainHeader div.right {
     float: left;
+    text-align: right;
 }
 .left img {
     float: left;
@@ -74,7 +96,7 @@ div.topMenu {
 }
 
 .left label {
-    margin-left: 15%;
+    margin-left: 5%;
 }
 .right div.space {
     height: 1em;
@@ -191,18 +213,18 @@ li {
 }
 div.row {
     height: 100%;
-    width: 20%;
+    width: 10%;
     position: relative;
     background: grey;
     text-align: center;
+    display: inline-block;
+    vertical-align: top;
 }
 div#categorySelectPrev {
     float: left;
 
 }
-div#categorySelectNext {
-    left: 80%;
-}
+
 .topMenuMiddle .row {
     float: left;
     overflow: hidden;
@@ -296,7 +318,7 @@ div.row_old:hover {
     border-top: 8px solid transparent;
     border-right: 9px solid white;
     border-bottom: 8px solid transparent;
-    background: transparent;
+background: transparent;
 
 }
 
@@ -335,24 +357,73 @@ div.rowRight2:after {
     left: -12px;
     position: absolute;
 }
+/* ------------------ checkbox */
+input[type=checkbox] {
+    display: none;
+    margin: 3px 3px 3px 4px;
+    -webkit-appearance: checkbox;
+    box-sizing: border-box;
+}
+input[type=checkbox]:checked {
+
+    background: red;
+}
+
+label.checkboxFive {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    background: #eee;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 10px 5px 20px;
+    position: relative; /* for :after absolute element */
+}
+label.checkboxFive:after {
+    display: block;
+    opacity: 0.2;
+    content: '';
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 6px;
+    left: 7px;
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+label.checkboxFive:checked:after {
+    opacity: 1;
+
+}
+
+input[type="checkbox"]:checked+label:after
+{
+    opacity: 1;
+}
+
+
+
 
 /* ------------------ */
+
+
+
 div.instructions {
     display: none;
     font-size: 1.5em;
     line-height: 1.5em;
 }
-.instructions input {
-    margin-left: 4%;
-    margin-right: 2%;
 
-    /* Double-sized Checkboxes */
-    -ms-transform: scale(2); /* IE */
-    -moz-transform: scale(2); /* FF */
-    -webkit-transform: scale(2); /* Safari and Chrome */
-    -o-transform: scale(2); /* Opera */
-    padding: 10px;
-}
 .instructions h1 {
     font-size: 1em;
     padding: 4%;
@@ -416,14 +487,7 @@ div.instructions {
         font-size: 0.8em;
         line-height: 1em;
     }
-    .instructions input {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(1); /* IE */
-        -moz-transform: scale(1); /* FF */
-        -webkit-transform: scale(1); /* Safari and Chrome */
-        -o-transform: scale(1); /* Opera */
-        padding: 10px;
-    }
+
 }
 @media only screen and (min-width: 301px)  and (max-width: 390px) {
 
@@ -476,14 +540,7 @@ div.instructions {
         font-size: 0.8em;
         line-height: 1em;
     }
-    .instructions input {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(1); /* IE */
-        -moz-transform: scale(1); /* FF */
-        -webkit-transform: scale(1); /* Safari and Chrome */
-        -o-transform: scale(1); /* Opera */
-        padding: 10px;
-    }
+
 }
 @media only screen and (min-width: 391px)  and (max-width: 470px) {
 
@@ -505,7 +562,7 @@ div.instructions {
         width: 2em;
     }
     .left > div {
-        margin-top: 5%;
+        margin-top: 10%;
     }
     .left #code {
         width: 64%;
@@ -529,14 +586,7 @@ div.instructions {
         font-size: 1em;
         line-height: 1.5em;
     }
-    .instructions input {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(1.5); /* IE */
-        -moz-transform: scale(1.5); /* FF */
-        -webkit-transform: scale(1.5); /* Safari and Chrome */
-        -o-transform: scale(1.5); /* Opera */
-        padding: 10px;
-    }
+
 }
 @media only screen and (min-width: 471px)  and (max-width: 550px) {
     .topMenu {
@@ -578,14 +628,7 @@ div.instructions {
         font-size: 1em;
         line-height: 1.5em;
     }
-    .instructions input {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(1.5); /* IE */
-        -moz-transform: scale(1.5); /* FF */
-        -webkit-transform: scale(1.5); /* Safari and Chrome */
-        -o-transform: scale(1.5); /* Opera */
-        padding: 10px;
-    }
+
 }
 
 @media only screen and (min-width: 551px)  and (max-width: 800px) {
@@ -625,14 +668,7 @@ div.instructions {
         font-size: 1em;
         line-height: 1.5em;
     }
-    .instructions input {
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(2); /* IE */
-        -moz-transform: scale(2); /* FF */
-        -webkit-transform: scale(2); /* Safari and Chrome */
-        -o-transform: scale(2); /* Opera */
-        padding: 10px;
-    }
+
 }
 
 @media only screen and (min-width: 801px)  and (max-width: 1050px) {
@@ -640,12 +676,18 @@ div.instructions {
         height: 80px;
         line-height: 80px;
     }
+    .topMenu h1{
+        font-size: 0.8em;
+    }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
         font-size: 1.5em;
     }
     .categoryWidget, .categoryWidget select {
         font-size: 1em;
+    }
+    .categoryWidget input{
+        margin-top: 56px;
     }
     .mainHeader input {
         font-size: 2em;
@@ -699,15 +741,7 @@ div.instructions {
     .content input, .content select {
         font-size: 1.5em;
     }
-    .instructions input {
-        margin-right: 4%;
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(4); /* IE */
-        -moz-transform: scale(4); /* FF */
-        -webkit-transform: scale(4); /* Safari and Chrome */
-        -o-transform: scale(4); /* Opera */
-        padding: 10px;
-    }
+
 
 }
 
@@ -715,6 +749,12 @@ div.instructions {
     .topMenu {
         height: 100px;
         line-height: 100px;
+    }
+    .topMenu h1{
+        font-size: 0.8em;
+    }
+    .categoryWidget input{
+        margin-top: 74px;
     }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
@@ -775,14 +815,17 @@ div.instructions {
     .content input, .content select {
         font-size: 1.5em;
     }
-    .instructions input {
-        margin-right: 4%;
-        /* Double-sized Checkboxes */
-        -ms-transform: scale(4); /* IE */
-        -moz-transform: scale(4); /* FF */
-        -webkit-transform: scale(4); /* Safari and Chrome */
-        -o-transform: scale(4); /* Opera */
-        padding: 10px;
+    label.checkboxFive {
+        width: 55px;
+        height: 55px;
+        margin: 10px 10px 10px 40px;
+    }
+    label.checkboxFive:after {
+        width: 29px;
+        height: 15px;
+        top: 12px;
+        left: 13px;
+        border-width: 6px;
     }
 
 }

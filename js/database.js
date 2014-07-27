@@ -147,8 +147,8 @@ db.initSheetsData = function()
 
         tx.executeSql('SELECT * FROM sheetsheaders', [], function(tx, results)
         {
-            $( "#categorySelect" ).empty();
-            $( "#categorySelect" ).append($("<option></option>").attr("value","Instructions").text("Instructions"));
+            $("#categorySelect").empty();
+            $("#categorySelect").append($("<option></option>").attr("value","Instructions").text("Instructions"));
 
             len = results.rows.length;
             if(len==0)
@@ -158,6 +158,7 @@ db.initSheetsData = function()
                 //showInstructionsCodes();
 
                 $("body").css("display","block");
+                $("#categorySelect").append($("<option></option>").attr("value","New page").text("New page"));
             }
             else
             {
@@ -165,6 +166,7 @@ db.initSheetsData = function()
                 for (var i=0; i<len; i++){
                     $( "#categorySelect" ).append($("<option></option>").attr("value", results.rows.item(i).shid).text(results.rows.item(i).category));
                 }
+                $("#categorySelect").append($("<option></option>").attr("value","New page").text("New page"));
                 // load header and table
                 // get last opened sheet shid
                 database.transaction(function(tx)
@@ -194,8 +196,10 @@ db.CreateNextTable = function()
 
 
                 shid = Number(results.rows.item(0).lastshid) + 1;
-                $( "#categorySelect" ).append($("<option></option>").attr("value", shid).text(""));
-                $( "#categorySelect" ).val(shid);
+                //$("#categorySelect").append($("<option></option>").attr("value", shid).text(""));
+
+                $("#categorySelect option").eq($("#categorySelect > option").length-1).before($("<option></option>").val(shid).html(""));
+                $("#categorySelect").val(shid);
 
             db.setOpenedSheet();
 
