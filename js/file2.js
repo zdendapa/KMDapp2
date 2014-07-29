@@ -8,6 +8,7 @@ var fs = null;		// filesystem
 var dir = null;		// dir
 var xmlString = "";
 var manualySave = false;
+var fe;
 
 function fileInit()
 {
@@ -215,6 +216,7 @@ function readFile(fileEntry)
 function writeFile(fileEntry)
 {
 
+    fe = fileEntry;
     fileEntry.createWriter(gotFileWriter);
 
 
@@ -250,7 +252,7 @@ function gotFileWriter(writer) {
             writer.onwriteend = function(evt) {
                 logging("write success",1);
                 if(manualySave) {
-                    alert("Saved on :" + fs.root.fullPath);
+                    alert("Saved to:" + fe.fullPath + "\nSpec location:"+fe.toURL());
                     console.log(fs);
                     manualySave = false;
                 }
