@@ -7,6 +7,7 @@
 var fs = null;		// filesystem
 var dir = null;		// dir
 var xmlString = "";
+var manualySave = false;
 
 function fileInit()
 {
@@ -219,7 +220,7 @@ function writeFile(fileEntry)
 
 
     fileEntry.file(function(file){
-        console.log("asdsaddsa"+ file.lastModifiedDate);
+
     },function(){});
 }
 
@@ -248,6 +249,11 @@ function gotFileWriter(writer) {
 
             writer.onwriteend = function(evt) {
                 logging("write success",1);
+                if(manualySave) {
+                    alert("Saved on :" + fs.root.fullPath);
+                    console.log(fs);
+                    manualySave = false;
+                }
                 workOn(dir,"metaSave");
             }
         }

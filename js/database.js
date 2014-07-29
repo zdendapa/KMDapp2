@@ -273,8 +273,10 @@ db.loadSheet = function()
     {
         showInstructions(true);
         $("body").css("display","block");
+        $("#category").val("Instructions");
         return;
     }
+    // this code is in newWTable
     if(categorySelectPrev=="Instructions")
     {
         showInstructions(false);
@@ -532,4 +534,14 @@ db.importCode = function(xml,success_callback)
             }
         }
     }, errorCB);
+};
+
+db.deleteShid = function(success_callback)
+{
+    database.transaction(function(tx) {
+        var shid = shidCurrentGet();
+        tx.executeSql('DELETE FROM sheetsdata WHERE shid='+shid);
+        tx.executeSql('DELETE FROM sheetsheaders WHERE shid='+shid);
+    }, errorCB, success_callback);
+
 };

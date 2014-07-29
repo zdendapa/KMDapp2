@@ -139,6 +139,14 @@ function init()
 function newWTable()
 {
     logging("newWTable",1);
+
+    // hide instruction if you tap new Page on that
+    // this code is in db.loadSheet
+    if(categorySelectPrev=="Instructions")
+    {
+        showInstructions(false);
+        $("body").css("display","block");
+    }
     //newWTableRender();
     db.CreateNextTable();
     //currentWtable = lastWtable;
@@ -283,16 +291,34 @@ function categorySelectUpdate()
 
 function buttonDelete()
 {
+    if($("#categorySelect option:selected").val()=="Instructions")
+        return;
+
     var r = confirm("Do you want to delete this page and all data?");
     if (r == true) {
-        alert("I will preform delete");
+        db.deleteShid(deleteAfterSelectCategory);
     } else {
         return;
     }
 }
+
+function deleteAfterSelectCategory()
+{
+    $("#categorySelect option[value="+shidCurrentGet()+"]").remove();
+    if($('#categorySelect > option').length<3){
+        $("categorySelect").prop('selectedIndex', 0);
+    } else
+    {
+        $("categorySelect").prop('selectedIndex', 1);
+    }
+    db.loadSheet();
+}
+
 function buttonSave()
 {
-    alert("I will preform save");
+    //alert("I will preform save");
+    manualySave= true;
+    generateXML("write");
 }
 
 function shidCurrentGet()

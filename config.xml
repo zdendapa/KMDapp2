@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cz.initedsolutions.kmd"
-        version   = "1.3">
+        version   = "1.4">
     <!--
       0.1
         a- oprava vzhledu
@@ -28,6 +28,10 @@
       - mixex combobox with label
       - top header layout changed
       - delete and save button added (now just for style without function)
+
+      1.4
+      - delete button working
+      - save button working
 
       DONT FORGET CHANGE:
       Db name
