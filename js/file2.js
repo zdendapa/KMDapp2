@@ -252,7 +252,10 @@ function gotFileWriter(writer) {
             writer.onwriteend = function(evt) {
                 logging("write success",1);
                 if(manualySave) {
-                    alert("Saved to:" + fe.fullPath + "\nSpec location:"+fe.toURL());
+                    alert("Saved to:" + fe.fullPath);
+                    // fe.fullPath "/kmd/TMMHExport.xml"
+                    // fe.toURL() "cdvfile://localhost/persistent/kmd/TMMHExport.xml"
+
                     console.log(fs);
                     manualySave = false;
                 }
