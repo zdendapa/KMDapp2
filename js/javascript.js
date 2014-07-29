@@ -110,6 +110,13 @@ function init()
 
 
     $('#categorySelectNext').on('click', function() {
+        if($('#categorySelect option:selected').next().val() == "New page")
+        {
+            return;
+        }
+        if($('#categorySelect > option').length<3){
+            return;
+        }
         $("#categorySelect > option:selected")
             .prop("selected", false)
             .next()
@@ -306,10 +313,12 @@ function deleteAfterSelectCategory()
 {
     $("#categorySelect option[value="+shidCurrentGet()+"]").remove();
     if($('#categorySelect > option').length<3){
-        $("categorySelect").prop('selectedIndex', 0);
+        //$("categorySelect").prop('selectedIndex', 1);
+        $('#categorySelect :nth-child(1)').prop('selected', true);
+
     } else
     {
-        $("categorySelect").prop('selectedIndex', 1);
+        $('#categorySelect :nth-child(2)').prop('selected', true);
     }
     db.loadSheet();
 }
