@@ -256,8 +256,11 @@ function addRow()
 {
     logging("addRow",1);
     lastRowID ++;
-    //$("ul.content").append('<li onchange="dbUpdater('+lastRowID+')" data-id="'+lastRowID+'"> <span class="dater"><input  onchange="dateFormatCheck(this)"></span> <span  class="paid"><input></span> <span class="description"><input onchange="addRowCheck(this)"></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this);recalculateBalance()"></span> <span class="last"><input readonly></span> </li>');
+
     $("ul.content").append('<li data-id="'+lastRowID+'"> <span class="dater"><input onchange="dateFormatCheck(this)"></span> <span  class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this)"></span> <span class="last"><input readonly></span> </li>');
+
+    //date picker (without dateFormatCheck()) dont work on Android
+    //$("ul.content").append('<li data-id="'+lastRowID+'"> <span class="dater"><input type="date" required="required"></span> <span  class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input></span> <span class="checkRef"><input></span> <span class="payment"><input onchange="priceFormatCheck(this)"></span> <span class="last"><input readonly></span> </li>');
 }
 
 function updateHeader()

@@ -28,6 +28,10 @@ function initFs() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFileSystem, onError);
     } else {
         window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+        if(window.webkitStorageInfo == undefined) {
+            logging("File system si not supported!",3);
+            return;
+        }
         window.requestFileSystem(window.webkitStorageInfo.TEMPORARY, 5*1024*1024, gotFileSystem, onError);
     }
 }

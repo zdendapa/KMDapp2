@@ -20,7 +20,7 @@ var lastSyncDate;   // date of last sync
 
 var db = {
     settings: {
-        shortName: 'kmd11e',
+        shortName: 'kmd11f',
         version: '1.0',
         displayName: 'KMD app',
         maxSize: 655367 // in bytes
@@ -309,7 +309,7 @@ db.loadSheet = function()
                 lastRowID = 0;
                 for (var i=0; i<len; i++){
                     //console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).payment);
-                    $("ul.content").append('<li data-id="'+results.rows.item(i).rowid+'"> <span class="dater"><input onchange="dateFormatCheck(this)" value="'+results.rows.item(i).dater+'"></span> <span class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input  value="'+results.rows.item(i).desc+'" onchange="addRowCheck(this)"></span> <span class="checkRef"><input value="'+results.rows.item(i).checkRef+'"></span> <span class="payment"><input onchange="priceFormatCheck(this)" value="'+results.rows.item(i).payment+'"></span> <span class="last"><input style="color:'+(results.rows.item(i).balance>=0?String("black"):String("red"))+'"  value="'+results.rows.item(i).balance+'" readonly></span> </li>');
+                    $("ul.content").append('<li data-id="'+results.rows.item(i).rowid+'"><span class="dater"><input onchange="dateFormatCheck(this)" value="'+results.rows.item(i).dater+'"></span> <span class="paid"><select>'+dbHowPaidOptionsHtml+'</select></span> <span class="description"><input  value="'+results.rows.item(i).desc+'" onchange="addRowCheck(this)"></span> <span class="checkRef"><input value="'+results.rows.item(i).checkRef+'"></span> <span class="payment"><input onchange="priceFormatCheck(this)" value="'+results.rows.item(i).payment+'"></span> <span class="last"><input style="color:'+(results.rows.item(i).balance>=0?String("black"):String("red"))+'"  value="'+results.rows.item(i).balance+'" readonly></span> </li>');
                     // select right option on the select
                     $("ul.content").find("li[data-id='"+results.rows.item(i).rowid+"']").find("select").val(results.rows.item(i).paid);
                     //value="'+results.rows.item(i).paid+'"

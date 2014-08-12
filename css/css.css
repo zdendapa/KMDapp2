@@ -15,6 +15,11 @@ input {
     text-align: center;
 }
 
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
 /* top menu */
 .topMenu {
     height: 10%;
@@ -445,8 +450,12 @@ div.instructions {
 /* =========================================================== media query */
 @media only screen and (min-width: 0px)  and (max-width: 300px) {
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 20px;
+        line-height: 20px;
+    }
+    div.row:after {
+        width: 20px;
+        height: 20px;
     }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
@@ -492,8 +501,12 @@ div.instructions {
 @media only screen and (min-width: 301px)  and (max-width: 390px) {
 
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 20px;
+        line-height: 20px;
+    }
+    div.row:after {
+        width: 20px;
+        height: 20px;
     }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
@@ -502,6 +515,9 @@ div.instructions {
     .categoryWidget, .categoryWidget select {
         font-size: 0.8em;
     }
+    .left img {
+        margin-top: 5%;
+    }
     .mainHeader input {
         font-size: 0.5em;
         line-height: 1em;
@@ -509,11 +525,15 @@ div.instructions {
     .mainHeader div.left {
         width: 50%;
     }
+    .mainHeader {
+        padding: 0px;
+        margin: 0px;
+    }
     .left img {
         width: 2em;
     }
     .left > div {
-        margin-top: 10%;
+        margin-top: 19%;
     }
     .left #code {
         width: 61%;
@@ -545,8 +565,12 @@ div.instructions {
 @media only screen and (min-width: 391px)  and (max-width: 470px) {
 
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
+    }
+    div.row:after {
+        width: 25px;
+        height: 30px;
     }
     .topMenuMiddle div, .topMenu .row {
         font-size: 0.7em;
@@ -590,8 +614,12 @@ div.instructions {
 }
 @media only screen and (min-width: 471px)  and (max-width: 550px) {
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
+    }
+    div.row:after {
+        width: 25px;
+        height: 30px;
     }
     .topMenuMiddle div, .topMenu .row {
         font-size: 0.8em;
@@ -607,7 +635,7 @@ div.instructions {
         width: 50px;
     }
     .left > div {
-        margin-top: 7%;
+        margin-top: 10%;
     }
     .left #code {
         width: 64%;
@@ -633,8 +661,12 @@ div.instructions {
 
 @media only screen and (min-width: 551px)  and (max-width: 800px) {
     .topMenu {
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
+    }
+    div.row:after {
+        width: 25px;
+        height: 30px;
     }
     .mainHeader h1 {
         font-size: 1em;
@@ -661,9 +693,6 @@ div.instructions {
     span.description {
         width: 35% !important;
     }
-    .topMenu {
-        height: 40px;
-    }
     div.instructions {
         font-size: 1em;
         line-height: 1.5em;
@@ -673,8 +702,12 @@ div.instructions {
 
 @media only screen and (min-width: 801px)  and (max-width: 1050px) {
     .topMenu {
-        height: 80px;
-        line-height: 80px;
+        height: 30px;
+        line-height: 30px;
+    }
+    div.row:after {
+        width: 15px;
+        height: 30px;
     }
     .topMenu h1{
         font-size: 0.8em;
@@ -701,14 +734,11 @@ div.instructions {
         margin-top: 35px;
     }
     .left img {
-        width: 120px;
+        width: 100px;
+        margin-left: 0px;
     }
     .tableHeader {
         font-size: 1.5em;
-    }
-    div.row:after {
-        width: 40px;
-        height: 80px;
     }
     div.rowLeft2:after {
         left: 0px;
@@ -747,8 +777,12 @@ div.instructions {
 
 @media only screen and (min-width: 1051px)  {
     .topMenu {
-        height: 100px;
-        line-height: 100px;
+        height: 40px;
+        line-height: 40px;
+    }
+    div.row:after {
+        width: 40px;
+        height: 40px;
     }
     .topMenu h1{
         font-size: 0.8em;
@@ -776,13 +810,14 @@ div.instructions {
     }
     .left img {
         width: 120px;
+        margin-left: 0px;
     }
     .tableHeader {
         font-size: 2em;
     }
     div.row:after {
-        width: 50px;
-        height: 100px;
+        width: 20px;
+        height: 40px;
     }
     div.rowLeft2:after {
         left: 0px;
@@ -791,7 +826,7 @@ div.instructions {
         right: 0px;
     }
     .left > div {
-        margin-top: 35px;
+        margin-top: 70px;
     }
     .left #code {
         width: 39%;

@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cz.initedsolutions.kmd"
-        version   = "1.4">
+        version   = "1.5">
     <!--
       0.1
         a- oprava vzhledu
@@ -32,6 +32,10 @@
       1.4
       - delete button working
       - save button working
+
+      1.5
+      - arrow changes
+      - minnor changes
 
       DONT FORGET CHANGE:
       Db name
