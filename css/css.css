@@ -13,12 +13,14 @@ input, li, span {
 }
 input {
     text-align: center;
+    -webkit-appearance: none;
 }
 
 input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
     display: none;
 }
+
+
 
 /* top menu */
 .topMenu {
@@ -45,6 +47,9 @@ div.categoryWidget {
     display: inline-block;
     width: 20px;
     margin-top: 10px;
+}
+.categoryWidget select {
+    z-index: 1000;
 }
 .categoryWidget input {
     margin-top: 20px;
@@ -448,7 +453,7 @@ div.instructions {
 }
 
 /* =========================================================== media query */
-@media only screen and (min-width: 0px)  and (max-width: 300px) {
+@media only screen and (min-width: 0px)  and (max-width: 360px) {
     .topMenu {
         height: 20px;
         line-height: 20px;
@@ -459,10 +464,16 @@ div.instructions {
     }
     .mainHeader h1, .mainHeader label, .mainHeader select,
     .topMenuMiddle div,.topMenu .row {
-        font-size: 0.5em;
+        font-size: 8px;
     }
     .categoryWidget, .categoryWidget select {
         font-size: 0.8em;
+    }
+    .categoryWidget input {
+        width: 73%;
+    }
+    .categoryWidget input, .categoryWidget select {
+        z-index: 100;
     }
     .mainHeader input {
         font-size: 0.5em;
@@ -473,9 +484,14 @@ div.instructions {
     }
     .left img {
         width: 1.5em;
+        margin-left: 0px;
     }
     .left > div {
-        margin-top: 10%;
+        margin-top: 20%;
+    }
+    .left label
+    {
+        vertical-align: top;
     }
     .mainHeader div.right {
         width: 50%;
@@ -498,7 +514,7 @@ div.instructions {
     }
 
 }
-@media only screen and (min-width: 301px)  and (max-width: 390px) {
+@media only screen and (min-width: 361px)  and (max-width: 390px) {
 
     .topMenu {
         height: 20px;
@@ -770,6 +786,18 @@ div.instructions {
     }
     .content input, .content select {
         font-size: 1.5em;
+    }
+    label.checkboxFive {
+        width: 55px;
+        height: 55px;
+        margin: 10px 10px 10px 40px;
+    }
+    label.checkboxFive:after {
+        width: 29px;
+        height: 15px;
+        top: 12px;
+        left: 13px;
+        border-width: 6px;
     }
 
 
