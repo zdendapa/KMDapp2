@@ -56,7 +56,7 @@ function init()
 
 
 
-    $( document ).on('change', '.content input, .content select', function() {
+    $(document).on('change', '.content input, .content select', function() {
         if(dbUpdater2(this))
         {
             addRowCheck(this);
@@ -64,7 +64,7 @@ function init()
         }
     });
 
-    $( document ).on('click', '.instructions input', function() {
+    $(document).on('click', '.instructions input', function() {
         var el = $(this);
         setTimeout(function(){
             startTable(el);
@@ -404,7 +404,7 @@ function codesSetDefaults()
     $("div.instruction").append("<div class='checkboxes'>");
     $("#code option").each(function()
     {
-        $(".instructions div.pickUp").append('<input id="instCheck'+i+'" type="checkbox" value="'+$(this).text()+'"><label class="checkboxFive" for="instCheck'+i+'"></label><span>'+$(this).text()+'</span><br>');
+        $(".instructions div.pickUp").append('<input id="instCheck'+i+'" type="checkbox" value="'+$(this).text()+'"><label class="checkboxFive" for="instCheck'+i+'"></label><label for="instCheck'+i+'">'+$(this).text()+'</label><br>');
         i++;
     });
 }
