@@ -36,6 +36,9 @@
       1.5
       - arrow changes
       - minnor changes
+      1.6
+      - fix menu buttons (instructions doesnt hide)
+      - disable debug button
 
       DONT FORGET CHANGE:
       Db name

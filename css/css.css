@@ -432,6 +432,7 @@ div.instructions {
     display: none;
     font-size: 1.5em;
     line-height: 1.5em;
+    margin-top: 10px;
 }
 
 .instructions h1 {

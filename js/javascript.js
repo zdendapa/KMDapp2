@@ -108,7 +108,7 @@ function init()
     });
 
 
-
+// ---------- left right buttons
     $('#categorySelectNext').on('click', function() {
         if($('#categorySelect option:selected').next().val() == "New page")
         {
@@ -121,7 +121,7 @@ function init()
             .prop("selected", false)
             .next()
             .prop("selected", true);
-        db.loadSheet();
+        db.loadSheet();memPrev();
     });
 
     $('#categorySelectPrev').on('click', function() {
@@ -129,11 +129,11 @@ function init()
             .prop("selected", false)
             .prev()
             .prop("selected", true);
-        db.loadSheet();
+        db.loadSheet();memPrev();
     });
 
 
-    enableMenuButton();
+    //enableMenuButton();
 
 
 
@@ -290,7 +290,7 @@ function categorySelectonchange()
     }
         else
     {
-        db.loadSheet();db.setOpenedSheet();memPrev()
+        db.loadSheet();db.setOpenedSheet();memPrev();
     }
 
 }
