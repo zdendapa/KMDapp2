@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "cz.initedsolutions.kmd"
-        version   = "1.5">
+        version   = "1.6">
     <!--
       0.1
         a- oprava vzhledu
